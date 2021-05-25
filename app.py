@@ -22,7 +22,7 @@ VERIFY_TOKEN ='UNIQE_TOKEN'
 #################################################################################################
 os.environ["GOOGLE_APPLICATION_CREDENTIALS"] = 'private_key.json'
 
-DIALOGFLOW_PROJECT_ID = 'test-wj9j'
+DIALOGFLOW_PROJECT_ID = 'agtbot-tbua'
 DIALOGFLOW_LANGUAGE_CODE = 'fr'
 SESSION_ID = 'me'
 #########################################################################################################

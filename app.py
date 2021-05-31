@@ -22,9 +22,9 @@ bot = Bot(ACCESS_TOKEN)
 #################################################################################################
 os.environ["GOOGLE_APPLICATION_CREDENTIALS"] = 'private_key.json'
 
-DIALOGFLOW_PROJECT_ID = 'agtbot-tbua'
+DIALOGFLOW_PROJECT_ID = os.environ['DIALOGFLOW_PROJECT_ID']
 DIALOGFLOW_LANGUAGE_CODE = 'fr'
-SESSION_ID = 'me'
+SESSION_ID = os.environ['SESSION_ID']
 #########################################################################################################
 def configureDataBase():
     client = MongoClient("mongodb+srv://agt:agt@cluster.pyiww.mongodb.net/myFirstDatabase?retryWrites=true&w=majority")

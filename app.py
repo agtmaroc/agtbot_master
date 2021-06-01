@@ -7,8 +7,6 @@ from pymongo import MongoClient
 from saveConversation import Conversations
 
 #####################################################
-import json
-import os
 from os import environ
 import dialogflow
 from google.api_core.exceptions import InvalidArgument

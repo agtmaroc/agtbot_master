@@ -20,7 +20,7 @@ VERIFY_TOKEN = 'UNIQE_TOKEN'
 bot = Bot(ACCESS_TOKEN)
 
 #################################################################################################
-os.environ["GOOGLE_APPLICATION_CREDENTIALS"] = 'private_key.json'
+environ["GOOGLE_APPLICATION_CREDENTIALS"] = 'private_key.json'
 
 DIALOGFLOW_PROJECT_ID = environ['DIALOGFLOW_PROJECT_ID']
 DIALOGFLOW_LANGUAGE_CODE = 'fr'

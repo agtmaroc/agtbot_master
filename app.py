@@ -77,12 +77,11 @@ def process_message(text):
         text_input = dialogflow.types.TextInput(text=text_to_be_analyzed, language_code=DIALOGFLOW_LANGUAGE_CODE)
         query_input = dialogflow.types.QueryInput(text=text_input)
         try:
-            response = session_client.detect_intent(session=session, query_input=query_input)
+            response = session_client.detect_intent(session,query_input)
         except InvalidArgument:
             raise
         response_sent_text = response.query_result.fulfillment_text
-        response = response_sent_text
-    return response
+    return response_sent_text
 
 #uses PyMessenger to send response to user
 def send_message(recipient_id, response):

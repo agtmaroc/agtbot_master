@@ -21,7 +21,7 @@ bot = Bot(ACCESS_TOKEN)
 
 #################################################################################################
 private_key.json = json.loads(environ['key'])
-environ["GOOGLE_APPLICATION_CREDENTIALS"] = 'private_key.son'
+environ["GOOGLE_APPLICATION_CREDENTIALS"] = 'private_key.json'
 
 DIALOGFLOW_PROJECT_ID = environ['DIALOGFLOW_PROJECT_ID']
 DIALOGFLOW_LANGUAGE_CODE = 'fr'

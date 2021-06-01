@@ -21,7 +21,7 @@ bot = Bot(ACCESS_TOKEN)
 
 #################################################################################################
 
-os.environ['GOOGLE_APPLICATION_CREDENTIALS'] = 'google-credentials.json'
+
 DIALOGFLOW_PROJECT_ID = environ['DIALOGFLOW_PROJECT_ID']
 DIALOGFLOW_LANGUAGE_CODE = 'fr'
 SESSION_ID = environ['SESSION_ID']

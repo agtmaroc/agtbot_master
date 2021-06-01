@@ -15,8 +15,8 @@ from google.api_core.exceptions import InvalidArgument
 ######################################################
 
 app = Flask(__name__)
-ACCESS_TOKEN = 'EAAXI9pEEBREBAP1H2bOf9chq6GdPEW5SuCjQMJBIg72DzZBkabwQOWkIVomSQNZC7LtKI2KBfh9USIyscw93TmRpowyOJpqJTCnsDRZA6jKKYwl6dvPWJMZB9LQl0bb0i3PzzfTgEo4ur7DgLbo4LAnwmhSZAgL4D3gHHUrv8jPQzQ1qfZAQJYr2zbFCaiPXkZD'
-VERIFY_TOKEN = 'UNIQE_TOKEN'
+ACCESS_TOKEN = environ['ACCESS_TOKEN']
+VERIFY_TOKEN = environ['VERIFY_TOKEN']
 bot = Bot(ACCESS_TOKEN)
 
 #################################################################################################
@@ -27,7 +27,7 @@ DIALOGFLOW_LANGUAGE_CODE = 'fr'
 SESSION_ID = environ['SESSION_ID']
 #########################################################################################################
 def configureDataBase():
-    client = MongoClient("mongodb+srv://agt:agt@cluster.pyiww.mongodb.net/myFirstDatabase?retryWrites=true&w=majority")
+    client = MongoClient(environ['CONNECTION'])
     return client['db_conversation']
 db = configureDataBase()
 log = Conversations.Log()

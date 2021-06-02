@@ -6,24 +6,24 @@ from datetime import date
 from pymongo import MongoClient
 from saveConversation import Conversations
 
-#####################################################
+#################################################****************PACKAGES DE DIALOGFLOW***********************#############################
 from os import environ
 import dialogflow
 from google.api_core.exceptions import InvalidArgument
-######################################################
+#################################################***************APPLICATION******************#############################
 
 app = Flask(__name__)
 ACCESS_TOKEN = environ['ACCESS_TOKEN']
 VERIFY_TOKEN = environ['VERIFY_TOKEN']
 bot = Bot(ACCESS_TOKEN)
 
-#################################################################################################
+################################################***************LES CLEES DE DIALOGFLOW**************#########################
 
 
 DIALOGFLOW_PROJECT_ID = environ['DIALOGFLOW_PROJECT_ID']
 DIALOGFLOW_LANGUAGE_CODE = 'fr'
 SESSION_ID = environ['SESSION_ID']
-#########################################################################################################
+##############################################**************CONNECTION AVEC ATLAS MANGODB************#########################
 def configureDataBase():
     client = MongoClient(environ['CONNECTION'])
     return client['db_conversation']
@@ -65,7 +65,7 @@ def verify_fb_token(token_sent):
     return 'Invalid verification token'
 
 
-
+#fonction de traitement de message reçu
 def process_message(text):
     formatted_message = text.lower()
     if formatted_message:

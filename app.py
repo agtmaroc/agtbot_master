@@ -65,7 +65,7 @@ def verify_fb_token(token_sent):
     return 'Invalid verification token'
 
 
-#fonction de traitement de message reçu
+#fonction de traitement du message reçu
 def process_message(text):
     formatted_message = text.lower()
     if formatted_message:

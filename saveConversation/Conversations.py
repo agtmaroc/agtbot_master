@@ -13,7 +13,7 @@ class Log:
         records.insert_one(mydict)
 
       
-    def saveInformation(self,userID,userName,userEmail,dbCon):
+    def saveInformation(self,userID,userName,userEmail,dbConn):
         self.now = datetime.now()
         self.date = self.now.sate()
         self.current_time = self.now.strftime("%H:%M:%S")

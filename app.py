@@ -51,7 +51,7 @@ def receive_message():
                 if message['message'].get('text'):
                     text = message['message'].get('text')
                     res = process_message(text)
-                    send_message(recipient_id, res)
+                    send_message(recipient_id,res)
                     #if res[1] == "test":
                         #nom = res[3].get("nom")
                         #email = res[3].get("email")

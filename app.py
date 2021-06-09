@@ -83,8 +83,8 @@ def process_message(text):
         except InvalidArgument:
             raise
         response_sent_text = response.query_result.fulfillment_text
-        intent = response.query_result.intent.display_name
-        parameters = response.query_result.parameters
+        #intent = response.query_result.intent.display_name
+        #parameters = response.query_result.parameters
     return response_sent_text
 
 #uses PyMessenger to send response to user

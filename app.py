@@ -52,10 +52,10 @@ def receive_message():
                     text = message['message'].get('text')
                     res = process_message(text)
                     send_message(recipient_id, res[0])
-                    if res[1] == "test":
-                        nom = res[3].get("nom")
-                        email = res[3].get("email")
-                    log.saveInformation(recipient_id,nom,email,db)
+                    #if res[1] == "test":
+                        #nom = res[3].get("nom")
+                        #email = res[3].get("email")
+                    #log.saveInformation(recipient_id,nom,email,db)
                 log.saveConversations(recipient_id,text,response_sent_text,db)       
                 
     return "Message Processed"

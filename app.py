@@ -56,7 +56,7 @@ def receive_message():
                         #nom = res[3].get("nom")
                         #email = res[3].get("email")
                     #log.saveInformation(recipient_id,nom,email,db)
-                log.saveConversations(recipient_id,text,response_sent_text,db)       
+                log.saveConversations(recipient_id,text,res,db)       
                 
     return "Message Processed"
 

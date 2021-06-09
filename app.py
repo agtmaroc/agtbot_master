@@ -53,7 +53,9 @@ def receive_message():
                     res = process_message(text)
                     send_message(recipient_id, res[0])
                     if res[1] == "test":
-                        log.saveInformation(recipient_id,res[3].get("nom"),res[3].get("email"),db)
+                        nom = res[3].get("nom")
+                        email = res[3].get("email")
+                    log.saveInformation(recipient_id,nom,email,db)
                 log.saveConversations(recipient_id,text,response_sent_text,db)       
                 
     return "Message Processed"

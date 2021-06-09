@@ -51,7 +51,7 @@ def receive_message():
                 if message['message'].get('text'):
                     text = message['message'].get('text')
                     res = process_message(text)
-                    send_message(recipient_id, res[0])
+                    send_message(recipient_id, res)
                     #if res[1] == "test":
                         #nom = res[3].get("nom")
                         #email = res[3].get("email")
@@ -85,7 +85,7 @@ def process_message(text):
         response_sent_text = response.query_result.fulfillment_text
         intent = response.query_result.intent.display_name
         parameters = response.query_result.parameters
-    return [response_sent_text,intent,parameters]
+    return response_sent_text
 
 #uses PyMessenger to send response to user
 def send_message(recipient_id, response):

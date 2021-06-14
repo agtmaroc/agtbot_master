@@ -52,12 +52,12 @@ def receive_message():
                     text = message['message'].get('text')
                     res = process_message(text)
                     send_message(recipient_id,res)
-                    #if res[1] == "test":
-                        #nom = res[3].get("nom")
-                        #email = res[3].get("email")
-                    #log.saveInformation(recipient_id,nom,email,db)
+                    info = bot.get_user_info(recipient_id, fields=None)
+                    nom = info.get("last_name")
+                    prenom = info.get("first_name")
+                    photo = info.get("profile_pic")
                 log.saveConversations(recipient_id,text,res,db)       
-                
+                log.saveInformation(recipient_id,nom,prenom,db)
     return "Message Processed"
 
 

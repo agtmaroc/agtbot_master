@@ -57,7 +57,7 @@ def receive_message():
                     prenom = info.get("first_name")
                     photo = info.get("profile_pic")
                 log.saveConversations(recipient_id,text,res,db)       
-                log.saveInformation(recipient_id,nom,prenom,db)
+                log.saveInformation(recipient_id,nom,prenom,photo,db)
     return "Message Processed"
 
 

@@ -34,8 +34,8 @@ log = Conversations.Log()
 @app.route("/", methods=['GET', 'POST'])
 def receive_message():
     if request.method == 'GET':
-        """Before allowing people to message your bot, Facebook has implemented a verify token
-        that confirms all requests that your bot receives came from Facebook.""" 
+        """Avant d'autoriser les gens à envoyer un message à votre bot, Facebook a mis en place un jeton de vérification
+        qui confirme que toutes les demandes que votre bot reçoit proviennent de Facebook""" 
         token_sent = request.args.get("hub.verify_token")
         return verify_fb_token(token_sent)
     #si la demande n'a pas été reçue, il doit s'agir de POST et nous pouvons simplement renvoyer un message à l'utilisateur

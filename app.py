@@ -53,11 +53,11 @@ def receive_message():
                     res = process_message(text)
                     send_message(recipient_id,res)
                     info = bot.get_user_info(recipient_id, fields=None)
-                    nom = info.get("last_name")
-                    prenom = info.get("first_name")
-                    photo = info.get("profile_pic")
+                    #nom = info.get("last_name")
+                    #prenom = info.get("first_name")
+                    #photo = info.get("profile_pic")
                 log.saveConversations(recipient_id,text,res,db)       
-                log.saveInformation(recipient_id,nom,prenom,photo,db)
+                #log.saveInformation(recipient_id,nom,prenom,photo,db)
     return "Message Processed"
 
 

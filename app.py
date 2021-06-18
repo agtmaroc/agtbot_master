@@ -1,4 +1,4 @@
-#Python libraries that we need to import for our bot
+#Python libraries 
 from typing import Text
 from flask import Flask, json, request
 from pymessenger import Bot
@@ -30,7 +30,7 @@ def configureDataBase():
 db = configureDataBase()
 log = Conversations.Log()
 
-#We will receive messages that Facebook sends our bot at this endpoint 
+#Nous recevrons des messages que Facebook envoie à notre bot à ce point de terminaison
 @app.route("/", methods=['GET', 'POST'])
 def receive_message():
     if request.method == 'GET':
@@ -38,15 +38,15 @@ def receive_message():
         that confirms all requests that your bot receives came from Facebook.""" 
         token_sent = request.args.get("hub.verify_token")
         return verify_fb_token(token_sent)
-    #if the request was not get, it must be POST and we can just proceed with sending a message back to user
+    #si la demande n'a pas été reçue, il doit s'agir de POST et nous pouvons simplement renvoyer un message à l'utilisateur
     else:
-        # get whatever message a user sent the bot
+        # Obtenir le message qu'un utilisateur a envoyé au bot
        output = request.get_json()
        for event in output['entry']:
           messaging = event['messaging']
           for message in messaging:
             if message.get('message'):
-                #Facebook Messenger ID for user so we know where to send response back to
+                #ID Facebook Messenger pour l'utilisateur afin que nous sachions où renvoyer la réponse
                 recipient_id = message['sender']['id']
                 if message['message'].get('text'):
                     text = message['message'].get('text')
@@ -62,8 +62,8 @@ def receive_message():
 
 
 def verify_fb_token(token_sent):
-    #take token sent by facebook and verify it matches the verify token you sent
-    #if they match, allow the request, else return an error 
+    #prendre le jeton envoyé par facebook et vérifier qu'il correspond au jeton de vérification que vous avez envoyé
+    #s'il correspondent autoriser la requete, sinon renvoyer une erreur
     if token_sent == VERIFY_TOKEN:
         return request.args.get("hub.challenge")
     return 'Invalid verification token'
@@ -87,9 +87,9 @@ def process_message(text):
         #parameters = response.query_result.parameters
     return response_sent_text
 
-#uses PyMessenger to send response to user
+#utilise PyMessenger pour envoyer une réponse à l'utilisateur
 def send_message(recipient_id, response):
-    #sends user the text message provided via input response parameter
+    #envoie à l'utilisateur le message texte fourni via le paramètre de réponse d'entrée
     bot.send_text_message(recipient_id, response)
     return "success"
 

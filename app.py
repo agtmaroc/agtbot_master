@@ -45,12 +45,12 @@ def processRequest(req):
     numero = parameters.get("numero")
     db = configureDataBase()
 
-    if intent == 'oui':
-        log.saveInformation(sessionID,nom,email,numero,db)
-        return 200
-    elif intent != 'oui':
-        log.saveConversations(sessionID,query_text,reponse,db)
-        return 200
+    #if intent == 'oui':
+        #log.saveInformation(sessionID,nom,email,numero,db)
+        #return 200
+    #elif intent != 'oui':
+        #log.saveConversations(sessionID,query_text,reponse,db)
+        #return 200
 
 
 

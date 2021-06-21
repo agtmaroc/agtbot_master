@@ -13,7 +13,7 @@ class Log:
         mydict = {"userID":userID,"User": usermessage, "Bot": botmessage, "Date": str(self.date) + "/" + str(self.current_time)}
 
         #table = db[sessionID]
-        records = dbConn.B
+        records = dbConn.info_conversation
         records.insert_one(mydict)
 
         #table.insert_one(mydict)
@@ -23,7 +23,7 @@ class Log:
         self.date = self.now.date()
         self.current_time = self.now.strftime("%H:%M:%S")
         mydict = {"userID":userID, "nom":nom, "prenom":prenom, "email":email, "Date": str(self.date) + "/" + str(self.current_time)}
-        records = dbConn.A
+        records = dbConn.info_personne
         if(records.find({"userID":userID}).count() == 0):
             records.insert_one(mydict)
         else:

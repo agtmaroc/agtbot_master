@@ -13,11 +13,11 @@ class Log:
 
         
 
-    def saveInformation(self,userID,nom,prenom,email,dbConn):
+    def saveInformation(self,userID,nom,numero,email,dbConn):
         self.now = datetime.now()
         self.date = self.now.date()
         self.current_time = self.now.strftime("%H:%M:%S")
-        mydict = {"userID":userID, "nom":nom, "prenom":prenom, "email":email, "Date": str(self.date) + "/" + str(self.current_time)}
+        mydict = {"userID":userID, "nom":nom, "numero":numero, "email":email, "Date": str(self.date) + "/" + str(self.current_time)}
         records = dbConn.info_personne
         if(records.find({"userID":userID}).count() == 0):
             records.insert_one(mydict)

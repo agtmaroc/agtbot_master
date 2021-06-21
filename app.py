@@ -12,11 +12,10 @@ from saveConversation import Conversations
 app = Flask(__name__)  # initialising the flask app with the name 'app'
 
 def configureDataBase():
-    client = MongoClient("mongodb+srv://agt:agt@cluster.pyiww.mongodb.net/myFirstDatabase?retryWrites=true&w=majority")
+    client = MongoClient(environ['CONNECTION'])
     return client['db_conversation']
 db = configureDataBase()
 log = Conversations.Log()
-
 
 # geting and sending response to dialogflow
 @app.route('/webhook', methods=['POST'])

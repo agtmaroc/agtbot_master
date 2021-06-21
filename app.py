@@ -46,7 +46,7 @@ def processRequest(req):
     db = configureDataBase()
 
     if intent == 'oui':
-        log.saveInformation(sessionID,nom,email,numero,db)
+        log.saveInformation(sender_id,nom,email,numero,db)
         return 200
     elif intent != 'oui':
         log.saveConversations(sender_id,query_text,reponse,db)

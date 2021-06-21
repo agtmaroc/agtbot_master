@@ -43,6 +43,8 @@ def processRequest(req):
     nom = parameters.get("nom")
     email = parameters.get("email")
     numero = parameters.get("numero")
+    original = req.get("originalDetectIntentRequest")
+    sender_id = original.get("sender")
     db = configureDataBase()
 
     #if intent == 'oui':

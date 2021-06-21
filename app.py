@@ -3,7 +3,7 @@ from flask import Flask, render_template, request, jsonify, make_response
 import requests
 import pymongo
 import json
-import os
+from os import environ
 from pymongo import MongoClient
 from saveConversation import Conversations
 

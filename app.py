@@ -50,7 +50,7 @@ def processRequest(req):
         log.saveInformation(sessionID,nom,email,numero,db)
         return 200
     elif intent != 'oui':
-        log.saveConversations(sessionID,query_text,sender_id,db)
+        log.saveConversations(sender_id,query_text,reponse,db)
         return 200
 
 

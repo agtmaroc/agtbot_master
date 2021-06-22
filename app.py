@@ -31,7 +31,6 @@ def webhook():
 
 
 # processing the request from dialogflow
-
 def processRequest(req):
     log = Conversations.Log()
     sessionID = req.get('responseId')
@@ -52,7 +51,11 @@ def processRequest(req):
             return{
                 "fulfillmentMessages":[
                   {
-                     "text":"not anymore"
+                     "text": {
+                       "text": [
+                         "not anymore"
+                       ]
+                     }
                   }
                                       ]
                   }

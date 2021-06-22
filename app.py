@@ -31,6 +31,7 @@ def webhook():
 
 
 # processing the request from dialogflow
+
 def processRequest(req):
     log = Conversations.Log()
     sessionID = req.get('responseId')
@@ -46,8 +47,18 @@ def processRequest(req):
     db = configureDataBase()
 
     if intent == 'oui':
-        log.saveInformation(sender_id,nom,numero,email,db)
-        return 200
+        records = db.info_personne
+        if(records.find({"userID":sender_id}).count() == 0):
+            return{
+                "fulfillmentMessages":[
+                  {
+                     "text":"not anymore"
+                  }
+                                      ]
+                  }
+        else:
+            log.saveInformation(sender_id,nom,numero,email,db)
+            return 200
     elif intent != 'oui':
         log.saveConversations(sender_id,query_text,reponse,db)
         return 200

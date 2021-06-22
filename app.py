@@ -49,15 +49,7 @@ def processRequest(req):
         records = db.info_personne
         if(records.find({"userID":sender_id}).count() > 0):
             return{
-                "fulfillmentMessages":[
-                  {
-                     "text": {
-                       "text": [
-                         "not anymore"
-                       ]
-                     }
-                  }
-                                      ]
+                "fulfillmentText": "something went wrong,Lets start from the begning, Say Hi"
                   }
         else:
             log.saveInformation(sender_id,nom,numero,email,db)

@@ -47,7 +47,7 @@ def processRequest(req):
 
     if intent == 'oui':
         records = db.info_personne
-        if(records.find({"userID":sender_id}).count() == 0):
+        if(records.find({"userID":sender_id}).count() > 0):
             return{
                 "fulfillmentMessages":[
                   {

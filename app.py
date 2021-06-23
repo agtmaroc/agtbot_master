@@ -47,7 +47,7 @@ def processRequest(req):
     sender_id = req.get("originalDetectIntentRequest").get("payload").get("data").get("sender").get("id")
     db = configureDataBase()
     #
-    info = bot.get_user_info(recipient_id, fields=None)
+    info = bot.get_user_info(sender_id, fields=None)
     nom = info.get("last_name")
     prenom = info.get("first_name")
     photo = info.get("profile_pic")

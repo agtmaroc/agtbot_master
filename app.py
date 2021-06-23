@@ -55,14 +55,7 @@ def processRequest(req):
         return 200
 
 
-@app.route("/", methods=['GET', 'POST'])
-def fbdata(recip_id):
-	info = bot.get_user_info(recip_id, fields=None)
-	return info
-info = bot.get_user_info(sender_id, fields=None)
-nom = info.get("last_name")
-prenom = info.get("first_name")
-photo = info.get("profile_pic")
+
 
 if __name__ == '__main__':
     app.run()

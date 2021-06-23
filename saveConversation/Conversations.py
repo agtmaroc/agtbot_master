@@ -13,7 +13,7 @@ class Log:
 
         
 
-    def saveInformation(self,userID,nom,numero,email,dbConn):
+    def saveInformation(self,userID,email,dbConn):
         self.now = datetime.now()
         self.date = self.now.date()
         self.current_time = self.now.strftime("%H:%M:%S")

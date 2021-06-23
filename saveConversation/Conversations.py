@@ -17,7 +17,7 @@ class Log:
         self.now = datetime.now()
         self.date = self.now.date()
         self.current_time = self.now.strftime("%H:%M:%S")
-        mydict = {"userID":userID, "nom":nom, "telephone":numero, "email":email, "Date": str(self.date) + "/" + str(self.current_time)}
+        mydict = {"userID":userID, "email":email, "Date": str(self.date) + "/" + str(self.current_time)}
         records = dbConn.info_personne
         if(records.find({"userID":userID}).count() == 0):
             records.insert_one(mydict)

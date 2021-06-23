@@ -46,7 +46,6 @@ def processRequest(req):
     db = configureDataBase()
 
     if intent == 'get_email':
-        records = db.info_personne
         log.saveInformation(sender_id,email,db)
         return 200
     elif intent != 'get_email':

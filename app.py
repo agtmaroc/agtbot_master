@@ -4,14 +4,12 @@ import requests
 import pymongo
 import json
 from os import environ
-#
-from pymessenger import Bot
-#
+#from pymessenger import Bot
 from pymongo import MongoClient
 from saveConversation import Conversations
 
-ACCESS_TOKEN = environ['ACCESS_TOKEN']
-bot = Bot(ACCESS_TOKEN)
+#ACCESS_TOKEN = environ['ACCESS_TOKEN']
+#bot = Bot(ACCESS_TOKEN)
 
 app = Flask(__name__)  #start flask app
 #database

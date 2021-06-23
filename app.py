@@ -46,13 +46,7 @@ def processRequest(req):
     email = parameters.get("email")
     sender_id = req.get("originalDetectIntentRequest").get("payload").get("data").get("sender").get("id")
     db = configureDataBase()
-    #
-    info = bot.get_user_info(sender_id, fields=None)
-    nom = info.get("last_name")
-    prenom = info.get("first_name")
-    photo = info.get("profile_pic")
-    #
-    
+
     if intent == 'get_email':
         log.saveInformation(sender_id,email,db)
         return 200
@@ -65,7 +59,10 @@ def processRequest(req):
 def fbdata(recip_id):
 	info = bot.get_user_info(recip_id, fields=None)
 	return info
-
+info = bot.get_user_info(sender_id, fields=None)
+nom = info.get("last_name")
+prenom = info.get("first_name")
+photo = info.get("profile_pic")
 
 if __name__ == '__main__':
     app.run()

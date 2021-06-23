@@ -45,16 +45,11 @@ def processRequest(req):
     sender_id = req.get("originalDetectIntentRequest").get("payload").get("data").get("sender").get("id")
     db = configureDataBase()
 
-    if intent == 'oui':
+    if intent == 'get_email':
         records = db.info_personne
-        if(records.find({"userID":sender_id}).count() > 0):
-            return{
-                "fulfillmentText": "something went wrong,Lets start from the begning, Say Hi"
-                  }
-        else:
-            log.saveInformation(sender_id,nom,numero,email,db)
-            return 200
-    elif intent != 'oui':
+        log.saveInformation(sender_id,email,db)
+        return 200
+    elif intent != 'get_email':
         log.saveConversations(sender_id,query_text,reponse,db)
         return 200
 

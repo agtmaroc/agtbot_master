@@ -1,4 +1,4 @@
-# doing necessary imports
+# imports
 from flask import Flask, render_template, request, jsonify, make_response
 import requests
 import pymongo
@@ -9,15 +9,15 @@ from saveConversation import Conversations
 
 
 
-app = Flask(__name__)  # initialising the flask app with the name 'app'
-
+app = Flask(__name__)  #start flask app
+#database
 def configureDataBase():
     client = MongoClient(environ['CONNECTION'])
     return client['db_conversation']
 db = configureDataBase()
 log = Conversations.Log()
 
-# geting and sending response to dialogflow
+# GET et POST les reponse a dialogflow
 @app.route('/webhook', methods=['POST'])
 
 def webhook():
@@ -30,7 +30,7 @@ def webhook():
     return r
 
 
-# processing the request from dialogflow
+# processing des requetes de dialogflow
 def processRequest(req):
     log = Conversations.Log()
     sessionID = req.get('responseId')
@@ -39,9 +39,9 @@ def processRequest(req):
     query_text = result.get("queryText")
     reponse = result.get("fulfillmentText")
     parameters = result.get("parameters")
-    nom = parameters.get("nom")
+    #nom = parameters.get("nom")
     email = parameters.get("email")
-    numero = parameters.get("numero")
+    #numero = parameters.get("numero")
     sender_id = req.get("originalDetectIntentRequest").get("payload").get("data").get("sender").get("id")
     db = configureDataBase()
 

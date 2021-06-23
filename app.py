@@ -4,10 +4,12 @@ import requests
 import pymongo
 import json
 from os import environ
+#from pymessenger import Bot
 from pymongo import MongoClient
 from saveConversation import Conversations
 
-
+#ACCESS_TOKEN = environ['ACCESS_TOKEN']
+#bot = Bot(ACCESS_TOKEN)
 
 app = Flask(__name__)  #start flask app
 #database
@@ -44,6 +46,10 @@ def processRequest(req):
     #numero = parameters.get("numero")
     sender_id = req.get("originalDetectIntentRequest").get("payload").get("data").get("sender").get("id")
     db = configureDataBase()
+    #info = bot.get_user_info(recipient_id, fields=None)
+    #nom = info.get("last_name")
+    #prenom = info.get("first_name")
+    #photo = info.get("profile_pic")
 
     if intent == 'get_email':
         log.saveInformation(sender_id,email,db)
